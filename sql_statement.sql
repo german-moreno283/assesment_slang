@@ -1,4 +1,4 @@
-SELECT month1, sal_date_count, sql_date_count, opportunity_date_count, close_date_count FROM
+SELECT month1, sal_date_count, (sal_date_count*1.0/sql_date_count) AS ratio_sql, (sql_date_count*1.0/opportunity_date_count) As ratio_opportunity, (opportunity_date_count*1.0/close_date_count) AS ratio_close FROM
 (
 SELECT strftime('%m', sal_date) AS month1, COUNT(*) AS sal_date_count
 FROM Challenge
